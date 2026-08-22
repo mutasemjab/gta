@@ -5,7 +5,7 @@
         <div class="brand-icon">
             <i class="bi bi-mortarboard-fill"></i>
         </div>
-        <span class="brand-text">{{ __('messages.edu_platform') }}</span>
+        <span class="brand-text">Gta</span>
     </div>
 
     {{-- Navigation --}}
@@ -18,24 +18,6 @@
                     class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-speedometer2"></i>
                     <span>{{ __('messages.dashboard') }}</span>
-                </a>
-            </li>
-        </ul>
-
-        <div class="nav-label">{{ __('messages.system') }}</div>
-        <ul>
-            <li class="nav-item">
-                <a href="{{ route('admin.role.index') }}"
-                    class="nav-link {{ request()->routeIs('admin.role.*') ? 'active' : '' }}">
-                    <i class="nav-icon bi bi-shield-check"></i>
-                    <span>{{ __('messages.roles_permissions') }}</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('admin.employee.index') }}"
-                    class="nav-link {{ request()->routeIs('admin.employee.*') ? 'active' : '' }}">
-                    <i class="nav-icon bi bi-people"></i>
-                    <span>الموظفون</span>
                 </a>
             </li>
         </ul>
