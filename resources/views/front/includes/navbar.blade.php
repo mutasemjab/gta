@@ -15,6 +15,7 @@
       <li><a href="#catalog">{{ __('messages.nav_catalog') }}</a></li>
       <li><a href="#projects">{{ __('messages.nav_projects') }}</a></li>
       <li><a href="#clients">{{ __('messages.nav_clients') }}</a></li>
+      <li><a href="#reels">{{ __('messages.nav_reels') }}</a></li>
       <li><a href="#contact">{{ __('messages.nav_contact') }}</a></li>
     </ul>
     <div class="nav-cta">

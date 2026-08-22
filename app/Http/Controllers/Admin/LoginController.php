@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
  public function show_login_view(){
- return view('admin.auth.login');
+    $stats = [
+        'products' => \App\Models\Product::count(),
+        'services' => \App\Models\Service::count(),
+        'projects' => \App\Models\Project::count(),
+    ];
 
-
+    return view('admin.auth.login', compact('stats'));
   }
 
   public function login(LoginRequest $request){

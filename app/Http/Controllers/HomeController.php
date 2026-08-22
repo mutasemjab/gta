@@ -13,6 +13,7 @@ use App\Models\HeroStat;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Service;
+use App\Models\Video;
 
 class HomeController extends Controller
 {
@@ -28,11 +29,12 @@ class HomeController extends Controller
         $catalogItems = CatalogItem::where('is_active', true)->orderBy('order_index')->get();
         $projects     = Project::where('is_active', true)->orderBy('order_index')->get();
         $clients      = Client::where('is_active', true)->orderBy('order_index')->get();
+        $videos       = Video::where('is_active', true)->orderBy('order_index')->get();
         $contactInfo  = ContactInfo::first();
 
         return view('front.home', compact(
             'hero', 'heroStats', 'about', 'aboutPills', 'aboutStats',
-            'services', 'products', 'catalogItems', 'projects', 'clients', 'contactInfo'
+            'services', 'products', 'catalogItems', 'projects', 'clients', 'videos', 'contactInfo'
         ));
     }
 }

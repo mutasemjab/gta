@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('messages.admin_login_title') }} — Al-Baheth</title>
+    <title>{{ __('messages.admin_login_title') }} —  GTA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Cairo', -apple-system, sans-serif;
             min-height: 100vh;
             display: flex;
             background: #f1f5f9;
@@ -327,8 +327,7 @@
 <div class="l-panel">
 
     <div class="l-brand">
-        <div class="l-brand-icon"><i class="bi bi-mortarboard-fill"></i></div>
-        <div class="l-brand-name">Al<span>Baheth</span></div>
+        <div class="l-brand-name"><span>GTA</span></div>
     </div>
 
     <div class="l-hero">
@@ -361,17 +360,17 @@
 
     <div class="l-stats">
         <div class="l-stat">
-            <span class="l-stat-val">1,284</span>
+            <span class="l-stat-val">{{ number_format($stats['products']) }}</span>
             <span class="l-stat-lbl">{{ __('messages.students') }}</span>
         </div>
         <div class="l-stat-divider"></div>
         <div class="l-stat">
-            <span class="l-stat-val">94</span>
+            <span class="l-stat-val">{{ number_format($stats['services']) }}</span>
             <span class="l-stat-lbl">{{ __('messages.teachers') }}</span>
         </div>
         <div class="l-stat-divider"></div>
         <div class="l-stat">
-            <span class="l-stat-val">168</span>
+            <span class="l-stat-val">{{ number_format($stats['projects']) }}</span>
             <span class="l-stat-lbl">{{ __('messages.courses') }}</span>
         </div>
     </div>
@@ -457,7 +456,7 @@
         </form>
 
         <div class="r-footer">
-            &copy; {{ date('Y') }} Al-Baheth. {{ __('messages.all_rights_reserved') }}
+            &copy; {{ date('Y') }}  GTA. {{ __('messages.all_rights_reserved') }}
         </div>
 
     </div>

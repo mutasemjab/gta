@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Permission\Models\Permission;
@@ -70,6 +71,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('catalog-items', CatalogItemController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('projects',      ProjectController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('clients',       ClientController::class, ['as' => 'admin'])->except(['show']);
+        Route::resource('videos',        VideoController::class, ['as' => 'admin'])->except(['show']);
     });
 });
 

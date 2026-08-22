@@ -60,6 +60,26 @@ addEventListener('scroll',()=>{
   nlinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
 });
 
+/* ---- Reels (click to play, one at a time) ---- */
+document.querySelectorAll('.reel-card').forEach(card=>{
+  const video=card.querySelector('.reel-video');
+  const toggle=()=>{
+    if(video.paused){
+      document.querySelectorAll('.reel-card.playing').forEach(c=>{
+        if(c!==card){c.classList.remove('playing');c.querySelector('.reel-video').pause();}
+      });
+      video.play();
+      card.classList.add('playing');
+    }else{
+      video.pause();
+      card.classList.remove('playing');
+    }
+  };
+  card.querySelector('.reel-play').addEventListener('click',e=>{e.stopPropagation();toggle();});
+  video.addEventListener('click',toggle);
+  video.addEventListener('ended',()=>card.classList.remove('playing'));
+});
+
 /* ---- Form ---- */
 const form=document.getElementById('quoteForm'),toast=document.getElementById('toast');
 form.addEventListener('submit',e=>{

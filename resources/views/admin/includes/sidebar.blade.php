@@ -112,6 +112,13 @@
                     <span>العملاء</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.videos.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.videos.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-play-btn"></i>
+                    <span>الفيديوهات (ريلز)</span>
+                </a>
+            </li>
         </ul>
 
     </nav>

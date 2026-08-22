@@ -213,6 +213,37 @@
   </div>
 </section>
 
+@if($videos->isNotEmpty())
+<div class="wrap"><div class="grout"></div></div>
+
+<!-- REELS -->
+<section class="section" id="reels">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">{{ __('messages.reels_eyebrow') }}</span>
+      <h2>{{ __('messages.reels_title') }}</h2>
+      <p>{{ __('messages.reels_desc') }}</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="reels-track">
+      @foreach($videos as $video)
+      <div class="reel-card reveal{{ $loop->index % 3 ? ' d' . ($loop->index % 3) : '' }}">
+        <video class="reel-video" src="{{ $video->video }}" @if($video->thumbnail) poster="{{ $video->thumbnail }}" @endif
+               muted loop playsinline preload="metadata"></video>
+        <button type="button" class="reel-play" aria-label="Play">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        @if($video->title_ar || $video->title_en)
+        <span class="reel-caption">{{ $ar ? $video->title_ar : $video->title_en }}</span>
+        @endif
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
+
 <div class="wrap"><div class="grout"></div></div>
 
 <!-- CONTACT -->

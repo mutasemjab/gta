@@ -4,6 +4,7 @@ return [
 
   "Home" => "Home",
   "Logout" => "Logout",
+  'dashboard' => 'Dashboard',
   'Search' => 'Search',
   'Reset' => 'Reset',
   'Actions' => 'Actions',
@@ -41,6 +42,7 @@ return [
     'nav_catalog' => 'Catalog',
     'nav_projects' => 'Projects',
     'nav_clients' => 'Clients',
+    'nav_reels' => 'Reels',
     'nav_contact' => 'Contact',
     'nav_cta' => 'Get a Quote',
 
@@ -73,6 +75,11 @@ return [
     // ── Front site: clients section ────────────────────────────────────────
     'clients_eyebrow' => 'Trusted by',
     'clients_title' => 'Contractors who build to last.',
+
+    // ── Front site: reels section ──────────────────────────────────────────
+    'reels_eyebrow' => 'In action',
+    'reels_title' => 'See it applied, in seconds.',
+    'reels_desc' => 'Real application clips from the field — mixing, trowelling and finishing, straight off site.',
 
     // ── Front site: contact section ────────────────────────────────────────
     'contact_eyebrow' => 'Get in touch',
@@ -114,4 +121,40 @@ return [
     'footer_link_products' => 'Products',
     'footer_link_projects' => 'Projects',
     'footer_link_catalog' => 'Catalog',
+
+    // ── Admin: login page ────────────────────────────────────────────────
+    'admin_login_title' => 'Admin Login',
+    'admin_portal' => 'Admin Portal',
+    'manage_platform_title' => 'Manage your',
+    'manage_platform_subtitle' => 'entire platform.',
+    'manage_platform_desc' => 'Content, products, projects and every section of the website — all from one dashboard.',
+    'feature_user_roles' => 'Employees & role permissions',
+    'feature_courses_lessons' => 'Products, services & catalog',
+    'feature_analytics' => 'Projects & client showcase',
+    'feature_settings_perms' => 'Site-wide settings & content',
+    'students' => 'Products',
+    'teachers' => 'Services',
+    'courses' => 'Projects',
+    'secure_access' => 'Secure access',
+    'welcome_back_short' => 'Welcome back',
+    'sign_in_admin_desc' => 'Sign in to manage the website content.',
+    'username_label' => 'Username',
+    'username_ph' => 'Enter your username',
+    'password_label' => 'Password',
+    'password_ph' => 'Enter your password',
+    'keep_signed_in' => 'Keep me signed in',
+    'sign_in_admin_btn' => 'Sign in',
+    'all_rights_reserved' => 'All rights reserved.',
+
+    // ── Admin: dashboard ──────────────────────────────────────────────────
+    'dashboard_subtitle' => 'Manage the website content — home page, navbar and footer',
+    'stat_services' => 'Services',
+    'stat_products' => 'Products',
+    'stat_projects' => 'Projects',
+    'stat_clients' => 'Clients',
+    'quick_actions' => 'Quick Actions',
+    'section_hero' => 'Hero Section',
+    'section_about' => 'About Section',
+    'catalog' => 'Catalog',
+    'navbar_footer' => 'Navbar & Footer',
 ];
