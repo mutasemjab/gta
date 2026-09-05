@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutPill;
 use App\Models\AboutSection;
 use App\Models\AboutStat;
+use App\Models\Agent;
 use App\Models\CatalogItem;
 use App\Models\Client;
 use App\Models\ContactInfo;
@@ -28,13 +29,14 @@ class HomeController extends Controller
         $products     = Product::where('is_active', true)->orderBy('order_index')->get();
         $catalogItems = CatalogItem::where('is_active', true)->orderBy('order_index')->get();
         $projects     = Project::where('is_active', true)->orderBy('order_index')->get();
+        $agents       = Agent::where('is_active', true)->orderBy('order_index')->get();
         $clients      = Client::where('is_active', true)->orderBy('order_index')->get();
         $videos       = Video::where('is_active', true)->orderBy('order_index')->get();
         $contactInfo  = ContactInfo::first();
 
         return view('front.home', compact(
             'hero', 'heroStats', 'about', 'aboutPills', 'aboutStats',
-            'services', 'products', 'catalogItems', 'projects', 'clients', 'videos', 'contactInfo'
+            'services', 'products', 'catalogItems', 'projects', 'agents', 'clients', 'videos', 'contactInfo'
         ));
     }
 }

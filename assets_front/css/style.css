@@ -61,6 +61,8 @@ header.nav:not(.scrolled) .brand img{filter:brightness(0) invert(1)}
 /* brighten navbar while over the dark hero (before scrolling) */
 header.nav:not(.scrolled) .burger span{background:#fff}
 header.nav:not(.scrolled) .burger.open span{background:var(--teal)}
+header.nav:not(.scrolled) .nav-cta .lang-switch{color:#fff;border-color:rgba(255,255,255,.45)}
+header.nav:not(.scrolled) .nav-cta .lang-switch:hover{background:#fff;color:var(--teal)}
 @media(min-width:961px){
   header.nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.9)}
   header.nav:not(.scrolled) .nav-links a:hover,
@@ -194,7 +196,9 @@ header.nav:not(.scrolled) .burger.open span{background:var(--teal)}
 .cat h3{font-size:1.2rem;color:#fff}
 .cat p{font-size:.9rem;color:#cfe0e0;flex:1}
 .cat .meta{font-family:'Cairo';font-size:.68rem;letter-spacing:.1em;color:var(--cream)}
-.cat .dl{display:inline-flex;align-items:center;gap:8px;font-family:'Cairo';font-weight:700;font-size:.9rem;color:var(--cream)}
+.cat-downloads{display:flex;gap:18px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed rgba(212,203,192,.25)}
+.cat .dl{display:inline-flex;align-items:center;gap:8px;font-family:'Cairo';font-weight:700;font-size:.9rem;color:var(--cream);transition:opacity .25s}
+.cat .dl:hover{opacity:.75}
 .cat .dl svg{width:16px;height:16px;transition:transform .3s var(--ease)}
 .cat:hover .dl svg{transform:translateY(3px)}
 

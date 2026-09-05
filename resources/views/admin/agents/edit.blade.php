@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
-@section('title', 'إضافة داتا شيت')
+@section('title', 'تعديل وكيل')
 
 @section('content')
 
 <div class="page-header d-flex align-items-start justify-content-between flex-wrap gap-3">
-    <div><h1 class="page-title">إضافة داتا شيت</h1></div>
-    <a href="{{ route('admin.catalog-items.index') }}" class="btn-outline-sm"><i class="bi bi-arrow-right"></i> العودة للقائمة</a>
+    <div><h1 class="page-title">تعديل وكيل</h1></div>
+    <a href="{{ route('admin.agents.index') }}" class="btn-outline-sm"><i class="bi bi-arrow-right"></i> العودة للقائمة</a>
 </div>
 
 @if($errors->any())
@@ -15,9 +15,10 @@
     </div>
 @endif
 
-<form action="{{ route('admin.catalog-items.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.agents.update', $agent->id) }}" method="POST" enctype="multipart/form-data">
 @csrf
-@include('admin.catalog-items._form')
+@method('PUT')
+@include('admin.agents._form')
 </form>
 
 @endsection

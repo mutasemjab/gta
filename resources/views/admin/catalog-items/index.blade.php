@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title', 'الكتالوج')
+@section('title', 'الداتا شيت')
 
 @section('content')
 
 <div class="page-header d-flex align-items-start justify-content-between flex-wrap gap-3">
     <div>
-        <h1 class="page-title">الكتالوج</h1>
-        <p class="page-sub">ملفات PDF القابلة للتحميل في قسم "مركز التحميل"</p>
+        <h1 class="page-title">الداتا شيت</h1>
+        <p class="page-sub">ملفات PDF (عربي وإنجليزي) القابلة للتحميل في قسم "مركز التحميل"</p>
     </div>
-    <a href="{{ route('admin.catalog-items.create') }}" class="btn-primary-sm"><i class="bi bi-plus-lg"></i> إضافة ملف</a>
+    <a href="{{ route('admin.catalog-items.create') }}" class="btn-primary-sm"><i class="bi bi-plus-lg"></i> إضافة داتا شيت</a>
 </div>
 
 @if(session('success'))
@@ -22,7 +22,7 @@
         <div class="table-responsive">
             <table class="data-table">
                 <thead>
-                    <tr><th>الترتيب</th><th>العنوان (عربي)</th><th>العنوان (إنجليزي)</th><th>الملف</th><th>الحالة</th><th>الإجراءات</th></tr>
+                    <tr><th>الترتيب</th><th>العنوان (عربي)</th><th>العنوان (إنجليزي)</th><th>الملفات</th><th>الحالة</th><th>الإجراءات</th></tr>
                 </thead>
                 <tbody>
                     @forelse($catalogItems as $item)
@@ -30,7 +30,11 @@
                         <td>{{ $item->order_index }}</td>
                         <td>{{ $item->title_ar }}</td>
                         <td>{{ $item->title_en }}</td>
-                        <td>@if($item->file)<a href="{{ $item->file }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i></a>@else —@endif</td>
+                        <td>
+                            @if($item->file_ar)<a href="{{ $item->file_ar }}" target="_blank" title="PDF عربي" class="me-1"><i class="bi bi-file-earmark-pdf"></i> AR</a>@endif
+                            @if($item->file_en)<a href="{{ $item->file_en }}" target="_blank" title="PDF إنجليزي"><i class="bi bi-file-earmark-pdf"></i> EN</a>@endif
+                            @if(!$item->file_ar && !$item->file_en) — @endif
+                        </td>
                         <td>
                             @if($item->is_active)
                                 <span class="pill pill-info">{{ __('messages.Active') }}</span>

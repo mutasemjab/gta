@@ -6,6 +6,7 @@ use App\Models\AboutPill;
 use App\Models\AboutSection;
 use App\Models\AboutStat;
 use App\Models\CatalogItem;
+use App\Models\Agent;
 use App\Models\Client;
 use App\Models\ContactInfo;
 use App\Models\FooterSetting;
@@ -250,6 +251,14 @@ class FrontContentSeeder extends Seeder
             ],
         ] as $row) {
             Project::create($row);
+        }
+
+        Agent::query()->delete();
+        foreach ([
+            'AL-WATANIYA TRADING', 'GULF BUILD SUPPLIES', 'LEVANT MATERIALS CO.',
+            'DESERT DISTRIBUTORS', 'CEDAR HOUSE AGENCIES', 'AMMAN BUILD PARTNERS',
+        ] as $i => $name) {
+            Agent::create(['name' => $name, 'order_index' => $i + 1]);
         }
 
         Client::query()->delete();

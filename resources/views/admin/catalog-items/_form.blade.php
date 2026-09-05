@@ -33,12 +33,20 @@
                 @error('description_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-6">
-                @if(($catalogItem->file ?? null))
-                    <a href="{{ $catalogItem->file }}" target="_blank" class="d-block mb-2"><i class="bi bi-file-earmark-pdf"></i> الملف الحالي</a>
+                @if(($catalogItem->file_ar ?? null))
+                    <a href="{{ $catalogItem->file_ar }}" target="_blank" class="d-block mb-2"><i class="bi bi-file-earmark-pdf"></i> الملف الحالي (عربي)</a>
                 @endif
-                <label class="form-label">ملف PDF{{ $catalogItem ? ' (اتركه فارغًا للإبقاء على الملف الحالي)' : '' }}</label>
-                <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" accept="application/pdf" {{ $catalogItem ? '' : 'required' }}>
-                @error('file')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                <label class="form-label">ملف PDF عربي{{ $catalogItem ? ' (اتركه فارغًا للإبقاء على الملف الحالي)' : '' }}</label>
+                <input type="file" name="file_ar" class="form-control @error('file_ar') is-invalid @enderror" accept="application/pdf" {{ $catalogItem ? '' : 'required' }}>
+                @error('file_ar')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+            <div class="col-md-6">
+                @if(($catalogItem->file_en ?? null))
+                    <a href="{{ $catalogItem->file_en }}" target="_blank" class="d-block mb-2"><i class="bi bi-file-earmark-pdf"></i> الملف الحالي (إنجليزي)</a>
+                @endif
+                <label class="form-label">ملف PDF إنجليزي{{ $catalogItem ? ' (اتركه فارغًا للإبقاء على الملف الحالي)' : '' }}</label>
+                <input type="file" name="file_en" class="form-control @error('file_en') is-invalid @enderror" accept="application/pdf" {{ $catalogItem ? '' : 'required' }}>
+                @error('file_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-3">
                 <label class="form-label">الترتيب</label>

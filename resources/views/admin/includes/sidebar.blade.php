@@ -77,7 +77,7 @@
                 <a href="{{ route('admin.catalog-items.index') }}"
                     class="nav-link {{ request()->routeIs('admin.catalog-items.*') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-file-earmark-pdf"></i>
-                    <span>الكتالوج</span>
+                    <span>الداتا شيت</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -85,6 +85,13 @@
                     class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-building"></i>
                     <span>المشاريع</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.agents.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.agents.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-person-badge"></i>
+                    <span>وكلاؤنا</span>
                 </a>
             </li>
             <li class="nav-item">

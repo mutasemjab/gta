@@ -148,15 +148,24 @@
     </div>
     <div class="cat-grid">
       @foreach($catalogItems as $i => $item)
-      <a class="cat reveal{{ $i % 3 ? ' d' . ($i % 3) : '' }}" href="{{ $item->file }}" download>
+      <div class="cat reveal{{ $i % 3 ? ' d' . ($i % 3) : '' }}">
         <div class="fico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg></div>
         <span class="meta">{{ $ar ? $item->meta_label_ar : $item->meta_label_en }}</span>
         <h3>{{ $ar ? $item->title_ar : $item->title_en }}</h3>
         <p>{{ $ar ? $item->description_ar : $item->description_en }}</p>
-        <span class="dl">{{ __('messages.catalog_download') }}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13M6 11l6 6 6-6M5 21h14"/></svg>
-        </span>
-      </a>
+        <div class="cat-downloads">
+          @if($item->file_ar)
+          <a class="dl" href="{{ $item->file_ar }}" download>{{ __('messages.datasheet_ar') }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13M6 11l6 6 6-6M5 21h14"/></svg>
+          </a>
+          @endif
+          @if($item->file_en)
+          <a class="dl" href="{{ $item->file_en }}" download>{{ __('messages.datasheet_en') }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13M6 11l6 6 6-6M5 21h14"/></svg>
+          </a>
+          @endif
+        </div>
+      </div>
       @endforeach
     </div>
   </div>
@@ -180,6 +189,34 @@
         <span class="cat-tag">{{ $ar ? $project->category_ar : $project->category_en }}</span>
         <div><h3>{{ $ar ? $project->title_ar : $project->title_en }}</h3><span class="loc">{{ $ar ? $project->location_ar : $project->location_en }}</span></div>
       </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="grout"></div></div>
+
+<!-- AGENTS -->
+<section class="section" id="agents">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">{{ __('messages.agents_eyebrow') }}</span>
+      <h2>{{ __('messages.agents_title') }}</h2>
+    </div>
+  </div>
+  <div class="marquee reveal">
+    <div class="mtrack">
+      @foreach($agents as $agent)
+      <span class="client">
+        @if($agent->logo)<img src="{{ $agent->logo }}" alt="{{ $agent->name }}" style="height:22px">@else<i class="d"></i>{{ $agent->name }}@endif
+      </span>
+      @endforeach
+    </div>
+    <div class="mtrack" aria-hidden="true">
+      @foreach($agents as $agent)
+      <span class="client">
+        @if($agent->logo)<img src="{{ $agent->logo }}" alt="{{ $agent->name }}" style="height:22px">@else<i class="d"></i>{{ $agent->name }}@endif
+      </span>
       @endforeach
     </div>
   </div>

@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
-@section('title', 'تعديل ملف كتالوج')
+@section('title', 'تعديل داتا شيت')
 
 @section('content')
 
 <div class="page-header d-flex align-items-start justify-content-between flex-wrap gap-3">
-    <div><h1 class="page-title">تعديل ملف كتالوج</h1></div>
+    <div><h1 class="page-title">تعديل داتا شيت</h1></div>
     <a href="{{ route('admin.catalog-items.index') }}" class="btn-outline-sm"><i class="bi bi-arrow-right"></i> العودة للقائمة</a>
 </div>
 

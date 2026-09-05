@@ -10,7 +10,7 @@ class CatalogItem extends Model
 
     protected $fillable = [
         'meta_label_ar', 'meta_label_en', 'title_ar', 'title_en',
-        'description_ar', 'description_en', 'file',
+        'description_ar', 'description_en', 'file_ar', 'file_en',
         'order_index', 'is_active',
     ];
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutPillController;
 use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\AboutStatController;
+use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\CatalogItemController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactInfoController;
@@ -71,6 +72,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('catalog-items', CatalogItemController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('projects',      ProjectController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('clients',       ClientController::class, ['as' => 'admin'])->except(['show']);
+        Route::resource('agents',        AgentController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('videos',        VideoController::class, ['as' => 'admin'])->except(['show']);
     });
 });

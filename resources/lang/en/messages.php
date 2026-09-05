@@ -39,8 +39,9 @@ return [
     'nav_about' => 'About',
     'nav_services' => 'Services',
     'nav_products' => 'Products',
-    'nav_catalog' => 'Catalog',
+    'nav_catalog' => 'Data Sheets',
     'nav_projects' => 'Projects',
+    'nav_agents' => 'Agents',
     'nav_clients' => 'Clients',
     'nav_reels' => 'Reels',
     'nav_contact' => 'Contact',
@@ -48,7 +49,7 @@ return [
 
     // ── Front site: hero ─────────────────────────────────────────────────
     'hero_btn_primary' => 'Explore Products',
-    'hero_btn_secondary' => 'Download Catalog',
+    'hero_btn_secondary' => 'Download Data Sheet',
 
     // ── Front site: services section ─────────────────────────────────────
     'services_eyebrow' => 'What we do',
@@ -59,18 +60,24 @@ return [
     'products_eyebrow' => 'Our products',
     'products_title' => 'A complete bonding range.',
     'products_desc' => 'From the first tile to the final joint — adhesives, grout and protection engineered to work as a system.',
-    'products_cta' => 'See the full catalog',
+    'products_cta' => 'See the full data sheets',
 
-    // ── Front site: catalog section ────────────────────────────────────────
+    // ── Front site: data sheets section ──────────────────────────────────────
     'catalog_eyebrow' => 'Download center',
-    'catalog_title' => 'Our catalog, ready to download.',
+    'catalog_title' => 'Data sheets, ready to download.',
     'catalog_desc' => 'Full product data, coverage figures and technical specs — everything you need to specify GTA with confidence.',
     'catalog_download' => 'Download',
+    'datasheet_ar' => 'Arabic PDF',
+    'datasheet_en' => 'English PDF',
 
     // ── Front site: projects section ───────────────────────────────────────
     'projects_eyebrow' => 'Our work',
     'projects_title' => 'Where GTA holds up.',
     'projects_desc' => 'A selection of projects delivered with GTA adhesives, grout and waterproofing systems.',
+
+    // ── Front site: agents section ───────────────────────────────────────────
+    'agents_eyebrow' => 'Our network',
+    'agents_title' => 'Agents and distributors we work with.',
 
     // ── Front site: clients section ────────────────────────────────────────
     'clients_eyebrow' => 'Trusted by',
@@ -120,7 +127,7 @@ return [
     'footer_link_services' => 'Services',
     'footer_link_products' => 'Products',
     'footer_link_projects' => 'Projects',
-    'footer_link_catalog' => 'Catalog',
+    'footer_link_catalog' => 'Data Sheets',
 
     // ── Admin: login page ────────────────────────────────────────────────
     'admin_login_title' => 'Admin Login',
@@ -129,7 +136,7 @@ return [
     'manage_platform_subtitle' => 'entire platform.',
     'manage_platform_desc' => 'Content, products, projects and every section of the website — all from one dashboard.',
     'feature_user_roles' => 'Employees & role permissions',
-    'feature_courses_lessons' => 'Products, services & catalog',
+    'feature_courses_lessons' => 'Products, services & data sheets',
     'feature_analytics' => 'Projects & client showcase',
     'feature_settings_perms' => 'Site-wide settings & content',
     'students' => 'Products',
@@ -155,6 +162,6 @@ return [
     'quick_actions' => 'Quick Actions',
     'section_hero' => 'Hero Section',
     'section_about' => 'About Section',
-    'catalog' => 'Catalog',
+    'catalog' => 'Data Sheets',
     'navbar_footer' => 'Navbar & Footer',
 ];
