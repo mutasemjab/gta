@@ -89,20 +89,11 @@ header.nav:not(.scrolled) .nav-cta .lang-switch:hover{background:#fff;color:var(
 .hero-ar{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-family:'Cairo';
   font-size:.72rem;letter-spacing:.3em;color:rgba(212,203,192,.7);pointer-events:none}
 
-/* isometric tile field */
-.stage{perspective:1200px;display:flex;justify-content:center;align-items:center;height:clamp(320px,46vw,520px);min-width:0}
-.tilefield{transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(45deg);
-  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:min(400px,74%);aspect-ratio:1;
-  background:var(--cream);padding:8px;border-radius:6px;box-shadow:0 40px 60px -20px rgba(0,0,0,.5)}
-.tilefield::after{content:"";position:absolute;inset:0;transform:translateZ(-26px);background:var(--cream-soft);
-  border-radius:6px;filter:brightness(.82)}
-.tile{aspect-ratio:1;background:var(--teal-2);border-radius:3px;transform:translateZ(0);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);opacity:0;animation:drop .8s var(--ease) forwards}
-.tile.hi{background:var(--cream)}
-@keyframes drop{0%{opacity:0;transform:translateZ(180px)}70%{opacity:1}100%{opacity:1;transform:translateZ(0)}}
-.tile.settled{animation:none;opacity:1}
-.tilefield.float{animation:floaty 6s ease-in-out infinite 1s}
-@keyframes floaty{0%,100%{transform:rotateX(58deg) rotateZ(45deg) translateZ(0)}50%{transform:rotateX(58deg) rotateZ(45deg) translateZ(14px)}}
+/* hero visual (admin-uploaded image) */
+.stage{display:flex;justify-content:center;align-items:center;height:clamp(320px,46vw,520px);min-width:0}
+.hero-visual{width:100%;height:100%;object-fit:cover;border-radius:var(--r);box-shadow:0 40px 70px -25px rgba(0,0,0,.55)}
+.hero-grid.no-stage{grid-template-columns:1fr}
+.hero-grid.no-stage .hero-copy{max-width:720px}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4;pointer-events:none}
 .blob.a{width:340px;height:340px;background:#4d7a80;top:-80px;right:-40px}
 .blob.b{width:260px;height:260px;background:#173438;bottom:-60px;left:10%}
@@ -330,7 +321,6 @@ footer .fabout{font-size:.92rem;max-width:34ch;color:#a9bfc1}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
-  .tile{opacity:1!important}
 }
 
 /* ---------- RTL (Arabic) ---------- */

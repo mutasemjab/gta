@@ -37,9 +37,17 @@ class HeroController extends Controller
             'primary_btn_link'     => 'required|string|max:255',
             'secondary_btn_link'   => 'required|string|max:255',
             'strip_text'           => 'nullable|string|max:255',
+            'image'                => 'nullable|image|max:4096',
         ]);
 
-        Hero::firstOrFail()->update($data);
+        $hero = Hero::firstOrFail();
+
+        if ($request->hasFile('image')) {
+            deleteUploadedImage($hero->image);
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
+        $hero->update($data);
 
         return redirect()->route('admin.hero.edit')->with('success', 'تم تحديث قسم الهيرو بنجاح.');
     }

@@ -15,6 +15,6 @@ class Hero extends Model
         'heading_line2_ar', 'heading_line2_en',
         'lead_ar', 'lead_en',
         'primary_btn_link', 'secondary_btn_link',
-        'strip_text',
+        'strip_text', 'image',
     ];
 }

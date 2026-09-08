@@ -25,9 +25,29 @@
     </div>
 @endif
 
-<form action="{{ route('admin.hero.update') }}" method="POST">
+<form action="{{ route('admin.hero.update') }}" method="POST" enctype="multipart/form-data">
 @csrf
 @method('PUT')
+
+<div class="panel-card mb-4">
+    <div class="panel-card-header"><h2 class="panel-card-title">صورة الهيرو</h2></div>
+    <div class="panel-card-body">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                @if($hero->image)
+                    <img src="{{ $hero->image }}" alt="hero" style="height:90px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15)">
+                @else
+                    <span class="text-muted small">لا توجد صورة بعد — يظهر الجانب الأيمن من الهيرو فارغًا حتى يتم رفع صورة</span>
+                @endif
+            </div>
+            <div class="col">
+                <label class="form-label">{{ $hero->image ? 'استبدال الصورة' : 'رفع صورة' }}</label>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
+                @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="panel-card mb-4">
     <div class="panel-card-header"><h2 class="panel-card-title">الشارة والعنوان</h2></div>

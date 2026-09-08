@@ -8,9 +8,9 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="blob a"></div><div class="blob b"></div>
-  <div class="wrap hero-grid">
+  <div class="wrap hero-grid{{ $hero->image ? '' : ' no-stage' }}">
     <div class="hero-copy">
-      <span class="hero-eye eyebrow"><i class="dot"></i>{{ $ar ? $hero->eyebrow_ar : $hero->eyebrow_en }}</span>
+   
       <h1>{{ $ar ? $hero->heading_line1_ar : $hero->heading_line1_en }}<br>
         <span class="accent">{{ $ar ? $hero->heading_highlight_ar : $hero->heading_highlight_en }}</span><br>
         {{ $ar ? $hero->heading_line2_ar : $hero->heading_line2_en }}</h1>
@@ -27,9 +27,11 @@
         @endforeach
       </div>
     </div>
+    @if($hero->image)
     <div class="stage">
-      <div class="tilefield" id="tilefield"></div>
+      <img src="{{ $hero->image }}" alt="{{ $ar ? $hero->heading_line1_ar : $hero->heading_line1_en }}" class="hero-visual">
     </div>
+    @endif
   </div>
   @if($hero->strip_text)
   <div class="hero-ar">{{ $hero->strip_text }}</div>
@@ -58,11 +60,6 @@
       <p class="lead-line reveal d1">{{ $ar ? $about->lead_ar : $about->lead_en }}</p>
       <p class="reveal d1">{{ $ar ? $about->paragraph1_ar : $about->paragraph1_en }}</p>
       <p class="reveal d2">{{ $ar ? $about->paragraph2_ar : $about->paragraph2_en }}</p>
-      <div class="pill-row reveal d3">
-        @foreach($aboutPills as $pill)
-        <span class="pill">{{ $ar ? $pill->name_ar : $pill->name_en }}</span>
-        @endforeach
-      </div>
     </div>
   </div>
   <div class="wrap">

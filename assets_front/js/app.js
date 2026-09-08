@@ -7,26 +7,6 @@ const burger=document.getElementById('burger'),links=document.getElementById('na
 burger.addEventListener('click',()=>{burger.classList.toggle('open');links.classList.toggle('open')});
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');links.classList.remove('open')}));
 
-/* ---- Build isometric tile field ---- */
-const field=document.getElementById('tilefield');
-const N=25, hi=new Set([12,13]); // center-ish cream tiles like the logo
-const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-for(let i=0;i<N;i++){
-  const t=document.createElement('div');
-  t.className='tile'+(hi.has(i)?' hi':'');
-  const r=i%5,c=Math.floor(i/5);
-  t.style.animationDelay=(reduce?0:(r+c)*0.09+0.15)+'s';
-  field.appendChild(t);
-}
-if(!reduce){
-  field.addEventListener('animationend',e=>{
-    if([...field.children].every(t=>getComputedStyle(t).opacity==='1')){
-      field.querySelectorAll('.tile').forEach(t=>t.classList.add('settled'));
-      field.classList.add('float');
-    }
-  });
-}
-
 /* ---- Scroll reveal ---- */
 const io=new IntersectionObserver((es)=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
