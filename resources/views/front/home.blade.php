@@ -205,7 +205,7 @@
     <div class="mtrack">
       @foreach($agents as $agent)
       <span class="client">
-        @if($agent->logo)<img src="{{ $agent->logo }}" alt="{{ $agent->name }}" style="height:150px">@else<i class="d"></i>{{ $agent->name }}@endif
+        @if($agent->logo)<img src="{{ asset($agent->logo) }}" alt="{{ $agent->name }}" style="height:150px">@else<i class="d"></i>{{ $agent->name }}@endif
       </span>
       @endforeach
     </div>
@@ -233,14 +233,14 @@
     <div class="mtrack">
       @foreach($clients as $client)
       <span class="client">
-        @if($client->logo)<img src="{{ $client->logo }}" alt="{{ $client->name }}" style="height:22px">@else<i class="d"></i>{{ $client->name }}@endif
+        @if($client->logo)<img src="{{ asset($client->logo) }}" alt="{{ $client->name }}" style="height:150px">@else<i class="d"></i>{{ $client->name }}@endif
       </span>
       @endforeach
     </div>
     <div class="mtrack" aria-hidden="true">
       @foreach($clients as $client)
       <span class="client">
-        @if($client->logo)<img src="{{ $client->logo }}" alt="{{ $client->name }}" style="height:22px">@else<i class="d"></i>{{ $client->name }}@endif
+        @if($client->logo)<img src="{{ asset($client->logo) }}" alt="{{ $client->name }}" style="height:150px">@else<i class="d"></i>{{ $client->name }}@endif
       </span>
       @endforeach
     </div>
