@@ -212,7 +212,7 @@
     <div class="mtrack" aria-hidden="true">
       @foreach($agents as $agent)
       <span class="client">
-        @if($agent->logo)<img src="{{ $agent->logo }}" alt="{{ $agent->name }}" style="height:22px">@else<i class="d"></i>{{ $agent->name }}@endif
+        @if($agent->logo)<img src="{{ asset('assets/uploads/'.$agent->logo) }}" alt="{{ $agent->name }}" style="height:22px">@else<i class="d"></i>{{ $agent->name }}@endif
       </span>
       @endforeach
     </div>
