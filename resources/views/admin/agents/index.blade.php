@@ -34,7 +34,7 @@
                         @forelse($agents as $agent)
                             <tr>
                                 <td>{{ $agent->order_index }}</td>
-                                <td><img src="{{ asset($agent->logo) }}" alt=""></td>
+                                <td><img src="{{ asset($agent->logo) }}" alt="" width="100px" height="100px"></td>
 
                                 <td>{{ $agent->name }}</td>
                                 <td>
