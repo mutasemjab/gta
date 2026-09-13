@@ -340,7 +340,7 @@ footer .fabout{font-size:.92rem;max-width:34ch;color:#a9bfc1}
 [dir="rtl"] .prod .top .code{left:auto;right:16px}
 [dir="rtl"] .prod .top .chip{right:auto;left:14px}
 [dir="rtl"] .prod .spec{flex-direction:row-reverse}
-[dir="rtl"] .cat .dl,[dir="rtl"] .cinfo{flex-direction:row-reverse}
+[dir="rtl"] .cat .dl{flex-direction:row-reverse}
 [dir="rtl"] .proj .cat-tag{left:auto;right:20px}
 [dir="rtl"] .client{flex-direction:row-reverse}
 [dir="rtl"] .mtrack{padding-right:0;padding-left:52px;animation-name:scroll-rtl}
