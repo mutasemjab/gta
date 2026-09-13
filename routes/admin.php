@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\NavbarSettingController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SectionHeadingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::put('contact-info', [ContactInfoController::class, 'update'])->name('admin.contact-info.update');
 
         // ── Front site content: home page sections ──────────────────────
+        Route::get('section-headings', [SectionHeadingController::class, 'edit'])->name('admin.section-headings.edit');
+        Route::put('section-headings', [SectionHeadingController::class, 'update'])->name('admin.section-headings.update');
+
         Route::get('hero', [HeroController::class, 'edit'])->name('admin.hero.edit');
         Route::put('hero', [HeroController::class, 'update'])->name('admin.hero.update');
         Route::resource('hero-stats', HeroStatController::class, ['as' => 'admin'])->except(['show']);

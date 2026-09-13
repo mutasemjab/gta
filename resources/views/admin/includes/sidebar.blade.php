@@ -60,6 +60,13 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route('admin.section-headings.edit') }}"
+                    class="nav-link {{ request()->routeIs('admin.section-headings.*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-type-h1"></i>
+                    <span>عناوين الأقسام</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.services.index') }}"
                     class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-tools"></i>

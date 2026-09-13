@@ -15,6 +15,7 @@ use App\Models\HeroStat;
 use App\Models\NavbarSetting;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\SectionHeading;
 use App\Models\Service;
 use Illuminate\Database\Seeder;
 
@@ -267,6 +268,51 @@ class FrontContentSeeder extends Seeder
             'CERAMICA PLUS', 'NILE ENGINEERING', 'ORBIT REALTY',
         ] as $i => $name) {
             Client::create(['name' => $name, 'order_index' => $i + 1]);
+        }
+
+        $sectionHeadings = [
+            'services' => [
+                'eyebrow_ar' => 'ماذا نقدم', 'eyebrow_en' => 'What we do',
+                'title_ar' => 'خدمات تتجاوز مجرد البيع.', 'title_en' => 'Services that go beyond the bucket.',
+                'description_ar' => 'المنتج نصف المهمة فقط، والنصف الآخر هو التأكد من أدائه في موقعك وفي الوقت المحدد.',
+                'description_en' => 'Product is half the job. The other half is making sure it performs on your site, on schedule.',
+            ],
+            'products' => [
+                'eyebrow_ar' => 'منتجاتنا', 'eyebrow_en' => 'Our products',
+                'title_ar' => 'مجموعة متكاملة من مواد اللصق.', 'title_en' => 'A complete bonding range.',
+                'description_ar' => 'من أول بلاطة إلى آخر فاصل — لواصق وروبة وحماية مصممة للعمل كنظام متكامل.',
+                'description_en' => 'From the first tile to the final joint — adhesives, grout and protection engineered to work as a system.',
+            ],
+            'catalog' => [
+                'eyebrow_ar' => 'مركز التحميل', 'eyebrow_en' => 'Download center',
+                'title_ar' => 'الداتا شيت، جاهزة للتحميل.', 'title_en' => 'Data sheets, ready to download.',
+                'description_ar' => 'بيانات كاملة عن المنتجات، معدلات التغطية والمواصفات الفنية — كل ما تحتاجه لاعتماد منتجات جي تي إيه بثقة.',
+                'description_en' => 'Full product data, coverage figures and technical specs — everything you need to specify GTA with confidence.',
+            ],
+            'projects' => [
+                'eyebrow_ar' => 'أعمالنا', 'eyebrow_en' => 'Our work',
+                'title_ar' => 'أينما ثبتت جي تي إيه.', 'title_en' => 'Where GTA holds up.',
+                'description_ar' => 'مجموعة مختارة من المشاريع المنفذة بلواصق وروبة وأنظمة عزل جي تي إيه.',
+                'description_en' => 'A selection of projects delivered with GTA adhesives, grout and waterproofing systems.',
+            ],
+            'agents' => [
+                'eyebrow_ar' => 'شبكتنا', 'eyebrow_en' => 'Our network',
+                'title_ar' => 'وكلاء وموزعون نتعامل معهم.', 'title_en' => 'Agents and distributors we work with.',
+            ],
+            'clients' => [
+                'eyebrow_ar' => 'موثوق بنا من قبل', 'eyebrow_en' => 'Trusted by',
+                'title_ar' => 'مقاولون يبنون ليدوم.', 'title_en' => 'Contractors who build to last.',
+            ],
+            'reels' => [
+                'eyebrow_ar' => 'من الميدان', 'eyebrow_en' => 'In action',
+                'title_ar' => 'شاهد التطبيق خلال ثوانٍ.', 'title_en' => 'See it applied, in seconds.',
+                'description_ar' => 'مقاطع حقيقية من مواقع العمل — الخلط والفرد والتشطيب، مباشرة من الميدان.',
+                'description_en' => 'Real application clips from the field — mixing, trowelling and finishing, straight off site.',
+            ],
+        ];
+
+        foreach ($sectionHeadings as $key => $fields) {
+            SectionHeading::updateOrCreate(['key' => $key], $fields);
         }
     }
 }

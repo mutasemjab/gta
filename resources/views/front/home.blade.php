@@ -77,9 +77,9 @@
 <section class="section" id="services">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">{{ __('messages.services_eyebrow') }}</span>
-      <h2>{{ __('messages.services_title') }}</h2>
-      <p>{{ __('messages.services_desc') }}</p>
+      <span class="eyebrow">{{ ($ar ? $headings->get('services')?->eyebrow_ar : $headings->get('services')?->eyebrow_en) ?: __('messages.services_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('services')?->title_ar : $headings->get('services')?->title_en) ?: __('messages.services_title') }}</h2>
+      <p>{{ ($ar ? $headings->get('services')?->description_ar : $headings->get('services')?->description_en) ?: __('messages.services_desc') }}</p>
     </div>
     <div class="svc-grid">
       @foreach($services as $i => $service)
@@ -106,9 +106,9 @@
 <section class="section" id="products">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">{{ __('messages.products_eyebrow') }}</span>
-      <h2>{{ __('messages.products_title') }}</h2>
-      <p>{{ __('messages.products_desc') }}</p>
+      <span class="eyebrow">{{ ($ar ? $headings->get('products')?->eyebrow_ar : $headings->get('products')?->eyebrow_en) ?: __('messages.products_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('products')?->title_ar : $headings->get('products')?->title_en) ?: __('messages.products_title') }}</h2>
+      <p>{{ ($ar ? $headings->get('products')?->description_ar : $headings->get('products')?->description_en) ?: __('messages.products_desc') }}</p>
     </div>
     <div class="prod-grid">
       @foreach($products as $i => $product)
@@ -139,9 +139,9 @@
 <section class="section" id="catalog">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">{{ __('messages.catalog_eyebrow') }}</span>
-      <h2>{{ __('messages.catalog_title') }}</h2>
-      <p>{{ __('messages.catalog_desc') }}</p>
+      <span class="eyebrow">{{ ($ar ? $headings->get('catalog')?->eyebrow_ar : $headings->get('catalog')?->eyebrow_en) ?: __('messages.catalog_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('catalog')?->title_ar : $headings->get('catalog')?->title_en) ?: __('messages.catalog_title') }}</h2>
+      <p>{{ ($ar ? $headings->get('catalog')?->description_ar : $headings->get('catalog')?->description_en) ?: __('messages.catalog_desc') }}</p>
     </div>
     <div class="cat-grid">
       @foreach($catalogItems as $i => $item)
@@ -174,9 +174,9 @@
 <section class="section" id="projects">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">{{ __('messages.projects_eyebrow') }}</span>
-      <h2>{{ __('messages.projects_title') }}</h2>
-      <p>{{ __('messages.projects_desc') }}</p>
+      <span class="eyebrow">{{ ($ar ? $headings->get('projects')?->eyebrow_ar : $headings->get('projects')?->eyebrow_en) ?: __('messages.projects_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('projects')?->title_ar : $headings->get('projects')?->title_en) ?: __('messages.projects_title') }}</h2>
+      <p>{{ ($ar ? $headings->get('projects')?->description_ar : $headings->get('projects')?->description_en) ?: __('messages.projects_desc') }}</p>
     </div>
     <div class="proj-grid">
       @foreach($projects as $i => $project)
@@ -197,8 +197,8 @@
 <section class="section" id="agents">
   <div class="wrap">
     <div class="head center reveal">
-      <span class="eyebrow">{{ __('messages.agents_eyebrow') }}</span>
-      <h2>{{ __('messages.agents_title') }}</h2>
+      <span class="eyebrow">{{ ($ar ? $headings->get('agents')?->eyebrow_ar : $headings->get('agents')?->eyebrow_en) ?: __('messages.agents_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('agents')?->title_ar : $headings->get('agents')?->title_en) ?: __('messages.agents_title') }}</h2>
     </div>
   </div>
   <div class="marquee reveal">
@@ -225,8 +225,8 @@
 <section class="section" id="clients">
   <div class="wrap">
     <div class="head center reveal">
-      <span class="eyebrow">{{ __('messages.clients_eyebrow') }}</span>
-      <h2>{{ __('messages.clients_title') }}</h2>
+      <span class="eyebrow">{{ ($ar ? $headings->get('clients')?->eyebrow_ar : $headings->get('clients')?->eyebrow_en) ?: __('messages.clients_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('clients')?->title_ar : $headings->get('clients')?->title_en) ?: __('messages.clients_title') }}</h2>
     </div>
   </div>
   <div class="marquee reveal">
@@ -254,9 +254,9 @@
 <section class="section" id="reels">
   <div class="wrap">
     <div class="head center reveal">
-      <span class="eyebrow">{{ __('messages.reels_eyebrow') }}</span>
-      <h2>{{ __('messages.reels_title') }}</h2>
-      <p>{{ __('messages.reels_desc') }}</p>
+      <span class="eyebrow">{{ ($ar ? $headings->get('reels')?->eyebrow_ar : $headings->get('reels')?->eyebrow_en) ?: __('messages.reels_eyebrow') }}</span>
+      <h2>{{ ($ar ? $headings->get('reels')?->title_ar : $headings->get('reels')?->title_en) ?: __('messages.reels_title') }}</h2>
+      <p>{{ ($ar ? $headings->get('reels')?->description_ar : $headings->get('reels')?->description_en) ?: __('messages.reels_desc') }}</p>
     </div>
   </div>
   <div class="wrap">

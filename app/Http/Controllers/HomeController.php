@@ -13,6 +13,7 @@ use App\Models\Hero;
 use App\Models\HeroStat;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\SectionHeading;
 use App\Models\Service;
 use App\Models\Video;
 
@@ -33,10 +34,11 @@ class HomeController extends Controller
         $clients      = Client::where('is_active', true)->orderBy('order_index')->get();
         $videos       = Video::where('is_active', true)->orderBy('order_index')->get();
         $contactInfo  = ContactInfo::first();
+        $headings     = SectionHeading::all()->keyBy('key');
 
         return view('front.home', compact(
             'hero', 'heroStats', 'about', 'aboutPills', 'aboutStats',
-            'services', 'products', 'catalogItems', 'projects', 'agents', 'clients', 'videos', 'contactInfo'
+            'services', 'products', 'catalogItems', 'projects', 'agents', 'clients', 'videos', 'contactInfo', 'headings'
         ));
     }
 }
