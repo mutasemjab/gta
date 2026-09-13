@@ -9,10 +9,10 @@
   --ease:cubic-bezier(.16,.84,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;overflow-x:hidden;width:100%}
 body{
   font-family:'Cairo',system-ui,sans-serif;background:var(--paper);color:var(--ink);
-  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  line-height:1.65;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,h4{font-family:'Cairo',sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:800}
 a{color:inherit;text-decoration:none}
@@ -214,17 +214,20 @@ header.nav:not(.scrolled) .nav-cta .lang-switch:hover{background:#fff;color:var(
   background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
   background-size:34px 34px;transform:perspective(400px) rotateX(20deg)}
 
-/* ---------- CLIENTS ---------- */
-#clients{background:var(--paper);overflow:hidden}
-.marquee{display:flex;gap:0;margin-top:10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+/* ---------- CLIENTS / AGENTS (marquee) ---------- */
+#clients,#agents{background:var(--paper);overflow:hidden;max-width:100vw}
+.marquee{display:flex;gap:0;margin-top:10px;overflow:hidden;max-width:100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mtrack{display:flex;gap:52px;padding-right:52px;animation:scroll 26s linear infinite;flex-shrink:0}
 .marquee:hover .mtrack{animation-play-state:paused}
 @keyframes scroll{to{transform:translateX(-100%)}}
+@keyframes scroll-rtl{to{transform:translateX(100%)}}
 .client{font-family:'Cairo';font-weight:800;font-size:1.35rem;color:var(--teal-2);opacity:.55;white-space:nowrap;
   display:flex;align-items:center;gap:12px;transition:opacity .3s}
 .client:hover{opacity:1}
 .client .d{width:8px;height:8px;background:var(--cream);transform:rotate(45deg)}
+.client img{max-width:220px;max-height:100%;width:auto;object-fit:contain}
 
 /* ---------- REELS ---------- */
 #reels{background:var(--paper-2)}
@@ -340,8 +343,7 @@ footer .fabout{font-size:.92rem;max-width:34ch;color:#a9bfc1}
 [dir="rtl"] .cat .dl,[dir="rtl"] .cinfo{flex-direction:row-reverse}
 [dir="rtl"] .proj .cat-tag{left:auto;right:20px}
 [dir="rtl"] .client{flex-direction:row-reverse}
-[dir="rtl"] .mtrack{padding-right:0;padding-left:52px}
-[dir="rtl"] @keyframes scroll{to{transform:translateX(100%)}}
+[dir="rtl"] .mtrack{padding-right:0;padding-left:52px;animation-name:scroll-rtl}
 [dir="rtl"] .foot-col a:hover{padding-left:0;padding-right:5px}
 [dir="rtl"] .toast{direction:rtl}
 [dir="rtl"] .field label{text-align:right}
