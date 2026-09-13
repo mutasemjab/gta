@@ -283,10 +283,13 @@
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="wrap">
+      <div class="head reveal">
+      <span class="eyebrow">{{ __('messages.contact_eyebrow') }}</span>
+      <h2>{{ __('messages.contact_title') }}</h2>
+      <p>{{ __('messages.contact_desc') }}</p>
+    </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h3>{{ __('messages.contact_reach_title') }}</h3>
-        <p>{{ __('messages.contact_reach_desc') }}</p>
         <div class="cinfo"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 012.1-.5c.9.4 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></div><div><b>{{ __('messages.contact_label_phone') }}</b><span>{{ $contactInfo->phone }}</span></div></div>
         <div class="cinfo"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></div><div><b>{{ __('messages.contact_label_email') }}</b><span>{{ $contactInfo->email }}</span></div></div>
         <div class="cinfo"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-6 8-12A8 8 0 004 10c0 6 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg></div><div><b>{{ __('messages.contact_label_address') }}</b><span>{{ $ar ? $contactInfo->address_ar : $contactInfo->address_en }}</span></div></div>
