@@ -283,11 +283,6 @@
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">{{ __('messages.contact_eyebrow') }}</span>
-      <h2>{{ __('messages.contact_title') }}</h2>
-      <p>{{ __('messages.contact_desc') }}</p>
-    </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h3>{{ __('messages.contact_reach_title') }}</h3>
