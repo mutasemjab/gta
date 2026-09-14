@@ -21,7 +21,14 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create($this->validated($request));
+        $data = $this->validated($request);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
+        Product::create($data);
+
         return redirect()->route('admin.products.index')->with('success', 'تمت إضافة المنتج بنجاح.');
     }
 
@@ -33,13 +40,25 @@ class ProductController extends Controller
 
     public function update(Request $request, int $id)
     {
-        Product::findOrFail($id)->update($this->validated($request));
+        $product = Product::findOrFail($id);
+        $data    = $this->validated($request);
+
+        if ($request->hasFile('image')) {
+            deleteUploadedImage($product->image);
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
+        $product->update($data);
+
         return redirect()->route('admin.products.index')->with('success', 'تم تحديث المنتج بنجاح.');
     }
 
     public function destroy(int $id)
     {
-        Product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        deleteUploadedImage($product->image);
+        $product->delete();
+
         return back()->with('success', 'تم حذف المنتج.');
     }
 
@@ -48,6 +67,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'chip_label'      => 'nullable|string|max:30',
             'code'            => 'nullable|string|max:60',
+            'image'           => 'nullable|image|max:4096',
             'name_ar'         => 'required|string|max:150',
             'name_en'         => 'required|string|max:150',
             'description_ar'  => 'required|string',
@@ -60,6 +80,7 @@ class ProductController extends Controller
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
+        unset($data['image']);
 
         return $data;
     }

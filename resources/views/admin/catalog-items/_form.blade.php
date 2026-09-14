@@ -33,6 +33,15 @@
                 @error('description_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-6">
+                @if(($catalogItem->image ?? null))
+                    <img src="{{ $catalogItem->image }}" alt="" style="height:70px;border-radius:8px;margin-bottom:6px">
+                @endif
+                <label class="form-label">صورة بدل أيقونة الملف (اختياري)</label>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
+                @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                <div class="form-text">إذا رفعت صورة، تظهر بدلًا من أيقونة PDF الافتراضية في بطاقة الداتا شيت.</div>
+            </div>
+            <div class="col-md-6">
                 @if(($catalogItem->file_ar ?? null))
                     <a href="{{ $catalogItem->file_ar }}" target="_blank" class="d-block mb-2"><i class="bi bi-file-earmark-pdf"></i> الملف الحالي (عربي)</a>
                 @endif

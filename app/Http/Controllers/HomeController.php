@@ -29,7 +29,7 @@ class HomeController extends Controller
         $services     = Service::where('is_active', true)->orderBy('order_index')->get();
         $products     = Product::where('is_active', true)->orderBy('order_index')->get();
         $catalogItems = CatalogItem::where('is_active', true)->orderBy('order_index')->get();
-        $projects     = Project::where('is_active', true)->orderBy('order_index')->get();
+        $projects     = Project::with('images')->where('is_active', true)->orderBy('order_index')->get();
         $agents       = Agent::where('is_active', true)->orderBy('order_index')->get();
         $clients      = Client::where('is_active', true)->orderBy('order_index')->get();
         $videos       = Video::where('is_active', true)->orderBy('order_index')->get();

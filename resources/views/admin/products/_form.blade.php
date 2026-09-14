@@ -26,6 +26,14 @@
                 </div>
             </div>
             <div class="col-md-6">
+                @if(($product->image ?? null))
+                    <img src="{{ $product->image }}" alt="" style="height:70px;border-radius:8px;margin-bottom:6px">
+                @endif
+                <label class="form-label">صورة المنتج (اختياري)</label>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
+                @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+            <div class="col-md-6">
                 <label class="form-label">اسم المنتج (عربي)</label>
                 <input type="text" name="name_ar" value="{{ old('name_ar', $product->name_ar ?? '') }}" class="form-control @error('name_ar') is-invalid @enderror" required>
                 @error('name_ar')<div class="invalid-feedback">{{ $message }}</div>@enderror

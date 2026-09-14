@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\NavbarSettingController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SectionHeadingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -75,6 +76,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('products',      ProductController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('catalog-items', CatalogItemController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('projects',      ProjectController::class, ['as' => 'admin'])->except(['show']);
+        Route::post('projects/{project}/images',   [ProjectImageController::class, 'store'])->name('admin.projects.images.store');
+        Route::delete('project-images/{id}',       [ProjectImageController::class, 'destroy'])->name('admin.project-images.destroy');
         Route::resource('clients',       ClientController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('agents',        AgentController::class, ['as' => 'admin'])->except(['show']);
         Route::resource('videos',        VideoController::class, ['as' => 'admin'])->except(['show']);

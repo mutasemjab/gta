@@ -18,4 +18,9 @@ class Project extends Model
         'order_index' => 'integer',
         'is_active' => 'boolean',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProjectImage::class)->orderBy('order_index');
+    }
 }

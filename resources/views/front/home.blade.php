@@ -113,7 +113,8 @@
     <div class="prod-grid">
       @foreach($products as $i => $product)
       <div class="prod reveal{{ $i % 4 ? ' d' . ($i % 4) : '' }}">
-        <div class="top"><div class="pat"></div>
+        <div class="top" @if($product->image) style="background-image:url('{{ $product->image }}');background-size:cover;background-position:center" @endif>
+          @unless($product->image)<div class="pat"></div>@endunless
           @if($product->chip_label)<span class="chip">{{ $product->chip_label }}</span>@endif
           @if($product->code)<span class="code">{{ $product->code }}</span>@endif
         </div>
@@ -146,7 +147,11 @@
     <div class="cat-grid">
       @foreach($catalogItems as $i => $item)
       <div class="cat reveal{{ $i % 3 ? ' d' . ($i % 3) : '' }}">
+        @if($item->image)
+        <img src="{{ $item->image }}" alt="" class="cat-thumb">
+        @else
         <div class="fico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg></div>
+        @endif
         <span class="meta">{{ $ar ? $item->meta_label_ar : $item->meta_label_en }}</span>
         <h3>{{ $ar ? $item->title_ar : $item->title_en }}</h3>
         <p>{{ $ar ? $item->description_ar : $item->description_en }}</p>
@@ -180,10 +185,17 @@
     </div>
     <div class="proj-grid">
       @foreach($projects as $i => $project)
-      <div class="proj {{ $project->size === 'big' ? 'big' : 'sm' }} p{{ ($i % 4) + 1 }} reveal{{ $i % 2 ? ' d1' : '' }}"
+      @php $gallery = $project->images->pluck('image')->prepend($project->image)->filter()->values(); @endphp
+      <div class="proj {{ $project->size === 'big' ? 'big' : 'sm' }} p{{ ($i % 4) + 1 }} reveal{{ $i % 2 ? ' d1' : '' }}{{ $gallery->isNotEmpty() ? ' has-gallery' : '' }}"
+           @if($gallery->isNotEmpty()) data-gallery="{{ $gallery->toJson() }}" role="button" tabindex="0" @endif
            @if($project->image) style="background-image:linear-gradient(180deg,transparent 30%,rgba(21,42,45,.86) 100%), url('{{ $project->image }}');background-size:cover;background-position:center" @endif>
         <div class="grid-tex"></div>
         <span class="cat-tag">{{ $ar ? $project->category_ar : $project->category_en }}</span>
+        @if($gallery->isNotEmpty())
+        <span class="proj-zoom" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </span>
+        @endif
         <div><h3>{{ $ar ? $project->title_ar : $project->title_en }}</h3><span class="loc">{{ $ar ? $project->location_ar : $project->location_en }}</span></div>
       </div>
       @endforeach
@@ -322,6 +334,15 @@
 <div class="toast" id="toast">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
   <span>{{ __('messages.form_note') }}</span>
+</div>
+
+<!-- PROJECT GALLERY LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="lb-stage"><img id="lbImage" src="" alt=""></div>
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18l6-6-6-6"/></svg></button>
+  <span class="lb-count" id="lbCount"></span>
 </div>
 
 @endsection

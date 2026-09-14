@@ -26,6 +26,10 @@ class CatalogItemController extends Controller
         $data['file_ar'] = uploadImage($request->file('file_ar'));
         $data['file_en'] = uploadImage($request->file('file_en'));
 
+        if ($request->hasFile('image')) {
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
         CatalogItem::create($data);
 
         return redirect()->route('admin.catalog-items.index')->with('success', 'تمت إضافة الداتا شيت بنجاح.');
@@ -52,6 +56,11 @@ class CatalogItemController extends Controller
             $data['file_en'] = uploadImage($request->file('file_en'));
         }
 
+        if ($request->hasFile('image')) {
+            deleteUploadedImage($catalogItem->image);
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
         $catalogItem->update($data);
 
         return redirect()->route('admin.catalog-items.index')->with('success', 'تم تحديث الداتا شيت بنجاح.');
@@ -62,6 +71,7 @@ class CatalogItemController extends Controller
         $catalogItem = CatalogItem::findOrFail($id);
         deleteUploadedImage($catalogItem->file_ar);
         deleteUploadedImage($catalogItem->file_en);
+        deleteUploadedImage($catalogItem->image);
         $catalogItem->delete();
 
         return back()->with('success', 'تم حذف الداتا شيت.');
@@ -74,6 +84,7 @@ class CatalogItemController extends Controller
         $data = $request->validate([
             'meta_label_ar'  => 'nullable|string|max:100',
             'meta_label_en'  => 'nullable|string|max:100',
+            'image'          => 'nullable|image|max:4096',
             'title_ar'       => 'required|string|max:150',
             'title_en'       => 'required|string|max:150',
             'description_ar' => 'required|string',
@@ -85,7 +96,7 @@ class CatalogItemController extends Controller
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
-        unset($data['file_ar'], $data['file_en']);
+        unset($data['file_ar'], $data['file_en'], $data['image']);
 
         return $data;
     }

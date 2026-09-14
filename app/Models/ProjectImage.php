@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProjectImage extends Model
+{
+    protected $table = 'project_images';
+
+    protected $fillable = ['project_id', 'image', 'order_index'];
+
+    protected $casts = ['order_index' => 'integer'];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+}

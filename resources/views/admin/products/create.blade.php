@@ -15,7 +15,7 @@
     </div>
 @endif
 
-<form action="{{ route('admin.products.store') }}" method="POST">
+<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
 @include('admin.products._form')
 </form>

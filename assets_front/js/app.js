@@ -69,6 +69,60 @@ document.querySelectorAll('.reel-card').forEach(card=>{
   video.addEventListener('ended',()=>card.classList.remove('playing'));
 });
 
+/* ---- Project gallery lightbox ---- */
+(function(){
+  const lightbox=document.getElementById('lightbox');
+  if(!lightbox)return;
+  const lbImage=document.getElementById('lbImage');
+  const lbCount=document.getElementById('lbCount');
+  const lbClose=document.getElementById('lbClose');
+  const lbPrev=document.getElementById('lbPrev');
+  const lbNext=document.getElementById('lbNext');
+  let images=[],index=0;
+
+  const render=()=>{
+    lbImage.src=images[index];
+    lbCount.textContent=(index+1)+' / '+images.length;
+  };
+  const open=(imgs,startAt)=>{
+    images=imgs;index=startAt||0;
+    if(!images.length)return;
+    render();
+    lightbox.classList.add('show');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  };
+  const close=()=>{
+    lightbox.classList.remove('show');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  };
+  const prev=()=>{index=(index-1+images.length)%images.length;render();};
+  const next=()=>{index=(index+1)%images.length;render();};
+
+  document.querySelectorAll('.proj.has-gallery').forEach(card=>{
+    const openFromCard=()=>{
+      try{
+        const imgs=JSON.parse(card.dataset.gallery||'[]');
+        open(imgs,0);
+      }catch(err){/* malformed gallery data, ignore */}
+    };
+    card.addEventListener('click',openFromCard);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openFromCard();}});
+  });
+
+  lbClose?.addEventListener('click',close);
+  lbPrev?.addEventListener('click',prev);
+  lbNext?.addEventListener('click',next);
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox)close();});
+  addEventListener('keydown',e=>{
+    if(!lightbox.classList.contains('show'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')prev();
+    if(e.key==='ArrowRight')next();
+  });
+})();
+
 /* ---- Form ---- */
 const form=document.getElementById('quoteForm'),toast=document.getElementById('toast');
 if(form){
