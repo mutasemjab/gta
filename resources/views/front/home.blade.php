@@ -117,7 +117,7 @@
     <div class="prod-grid">
       @foreach($products as $i => $product)
       <div class="prod reveal{{ $i % 4 ? ' d' . ($i % 4) : '' }}">
-        <div class="top" @if($product->image) style="background-image:url('{{ $product->image }}');background-size:cover;background-position:center" @endif>
+        <div class="top" @if($product->image) style="background-image:url('{{ $product->image }}');background-size:contain;background-repeat:no-repeat;background-position:center" @endif>
           @unless($product->image)<div class="pat"></div>@endunless
           @if($product->chip_label)<span class="chip">{{ $product->chip_label }}</span>@endif
           @if($product->code)<span class="code">{{ $product->code }}</span>@endif
