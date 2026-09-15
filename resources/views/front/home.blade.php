@@ -186,9 +186,9 @@
     <div class="proj-grid">
       @foreach($projects as $i => $project)
       @php $gallery = $project->images->pluck('image')->prepend($project->image)->filter()->values(); @endphp
-      <div class="proj {{ $project->size === 'big' ? 'big' : 'sm' }} p{{ ($i % 4) + 1 }} reveal{{ $i % 2 ? ' d1' : '' }}{{ $gallery->isNotEmpty() ? ' has-gallery' : '' }}"
+      <div class="proj {{ $project->size === 'big' ? 'big' : 'sm' }} p{{ ($i % 4) + 1 }} reveal{{ $i % 2 ? ' d1' : '' }}{{ $gallery->isNotEmpty() ? ' has-gallery' : '' }}{{ $project->image ? ' has-photo' : '' }}"
            @if($gallery->isNotEmpty()) data-gallery="{{ $gallery->toJson() }}" role="button" tabindex="0" @endif
-           @if($project->image) style="background-image:linear-gradient(180deg,transparent 30%,rgba(21,42,45,.86) 100%), url('{{ $project->image }}');background-size:cover;background-position:center" @endif>
+           @if($project->image) style="--proj-image:url('{{ $project->image }}')" @endif>
         <div class="grid-tex"></div>
         <span class="cat-tag">{{ $ar ? $project->category_ar : $project->category_en }}</span>
         @if($gallery->isNotEmpty())
