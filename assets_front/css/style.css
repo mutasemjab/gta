@@ -66,12 +66,18 @@ img {
 }
 
 .eyebrow {
-  font-family: 'Tajawal', monospace;
+  font-family: 'Tajawal', sans-serif;
   font-size: .72rem;
   letter-spacing: .32em;
   text-transform: uppercase;
   color: var(--teal-2);
   font-weight: 700
+}
+
+[dir="rtl"] .eyebrow {
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: .8rem
 }
 
 .section {
