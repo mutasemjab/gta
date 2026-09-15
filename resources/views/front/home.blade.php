@@ -231,7 +231,7 @@
   </div>
 </section>
 
-<div class="wrap"><div class="grout"></div></div>
+{{-- <div class="wrap"><div class="grout"></div></div>
 
 <!-- CLIENTS -->
 <section class="section" id="clients">
@@ -257,7 +257,7 @@
       @endforeach
     </div>
   </div>
-</section>
+</section> --}}
 
 @if($videos->isNotEmpty())
 <div class="wrap"><div class="grout"></div></div>
