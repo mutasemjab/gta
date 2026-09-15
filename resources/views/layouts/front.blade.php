@@ -15,7 +15,7 @@
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link href="{{ asset('assets_front/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_front/css/style.css') }}?v={{ @filemtime(base_path('assets_front/css/style.css')) }}" rel="stylesheet">
     @stack('styles')
 </head>
 
@@ -30,7 +30,7 @@
     @include('front.includes.footer')
 
 
-    <script src="{{ asset('assets_front/js/app.js') }}"></script>
+    <script src="{{ asset('assets_front/js/app.js') }}?v={{ @filemtime(base_path('assets_front/js/app.js')) }}"></script>
     @stack('scripts')
 </body>
 

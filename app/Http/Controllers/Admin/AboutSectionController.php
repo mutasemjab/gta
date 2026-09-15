@@ -26,6 +26,7 @@ class AboutSectionController extends Controller
         $data = $request->validate([
             'eyebrow_ar'    => 'required|string|max:150',
             'eyebrow_en'    => 'required|string|max:150',
+            'image'         => 'nullable|image|max:4096',
             'title_ar'      => 'required|string|max:250',
             'title_en'      => 'required|string|max:250',
             'lead_ar'       => 'required|string',
@@ -39,7 +40,14 @@ class AboutSectionController extends Controller
             'badge_text_en' => 'nullable|string|max:250',
         ]);
 
-        AboutSection::firstOrFail()->update($data);
+        $about = AboutSection::firstOrFail();
+
+        if ($request->hasFile('image')) {
+            deleteUploadedImage($about->image);
+            $data['image'] = uploadImage($request->file('image'));
+        }
+
+        $about->update($data);
 
         return redirect()->route('admin.about.edit')->with('success', 'تم تحديث قسم "من نحن" بنجاح.');
     }

@@ -44,7 +44,11 @@
 <section class="section" id="about">
   <div class="wrap about-grid">
     <div class="about-visual reveal">
+      @if($about->image)
+      <img src="{{ $about->image }}" alt="{{ $ar ? $about->title_ar : $about->title_en }}" class="about-photo">
+      @else
       <div class="mark"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><polygon points="6.0,118.0 150.0,190.0 150.0,210.0 6.0,138.0" fill="#BEB4A6"/><polygon points="150.0,190.0 294.0,118.0 294.0,138.0 150.0,210.0" fill="#D4CBC0"/><polygon points="150.0,46.0 294.0,118.0 150.0,190.0 6.0,118.0" fill="#D4CBC0" opacity="0.0"/><polygon points="150.0,46.0 198.0,70.0 150.0,94.0 102.0,70.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="198.0,70.0 246.0,94.0 198.0,118.0 150.0,94.0" fill="#D4CBC0" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="246.0,94.0 294.0,118.0 246.0,142.0 198.0,118.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="102.0,70.0 150.0,94.0 102.0,118.0 54.0,94.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="150.0,94.0 198.0,118.0 150.0,142.0 102.0,118.0" fill="#D4CBC0" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="198.0,118.0 246.0,142.0 198.0,166.0 150.0,142.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="54.0,94.0 102.0,118.0 54.0,142.0 6.0,118.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="102.0,118.0 150.0,142.0 102.0,166.0 54.0,142.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/><polygon points="150.0,142.0 198.0,166.0 150.0,190.0 102.0,166.0" fill="#3C6469" stroke="#F5F2EC" stroke-width="3" stroke-linejoin="round"/></svg></div>
+      @endif
       @if($about->badge_title)
       <div class="badge">
         <b>{{ $about->badge_title }}</b>

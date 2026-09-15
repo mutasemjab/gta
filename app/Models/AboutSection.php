@@ -9,7 +9,7 @@ class AboutSection extends Model
     protected $table = 'about_sections';
 
     protected $fillable = [
-        'eyebrow_ar', 'eyebrow_en',
+        'eyebrow_ar', 'eyebrow_en', 'image',
         'title_ar', 'title_en',
         'lead_ar', 'lead_en',
         'paragraph1_ar', 'paragraph1_en',
