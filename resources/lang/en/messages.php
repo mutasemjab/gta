@@ -31,7 +31,7 @@ return [
     'Admin_account' => 'Admin Account',
 
     // ── Front site: meta ────────────────────────────────────────────────
-    'page_title' => 'GTA for Adhesive — Tile Adhesives, Grout & Waterproofing',
+    'page_title' => 'European Chemical Manufacturing Technology',
     'meta_description' => 'GTA for Adhesive manufactures tile adhesives, grout and waterproofing systems built to German technology standards.',
 
     // ── Front site: navbar ──────────────────────────────────────────────
